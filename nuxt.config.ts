@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
-      baseUrl: '',
+      baseUrl: process.env.NODE_ENV === 'production' ? '/nuxt-profile/' : '/'
     },
   },
 })
