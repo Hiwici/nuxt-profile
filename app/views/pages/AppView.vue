@@ -66,7 +66,7 @@ const appCode = [
     content: appJavascriptCode,
     type: 'javascript',
   },
-]
+] as { content: string; type: HighlightCodeType }[]
 
 /** Ref Properties */
 const refContainer = ref<HTMLElement | null>(null)
