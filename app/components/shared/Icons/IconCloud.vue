@@ -131,7 +131,7 @@ watchEffect(() => {
 
     const img = new Image()
     img.crossOrigin = 'anonymous'
-    img.src = '/icons/' + name + '.png'
+    img.src = '/nuxt-profile/icons/' + name + '.png'
     img.onload = () => {
       offCtx.clearRect(0, 0, offscreen.width, offscreen.height)
 
