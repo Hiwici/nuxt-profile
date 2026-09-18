@@ -1,0 +1,57 @@
+@theme {
+  --animate-flip-fade-in-word: fade-in-word 0.3s ease forwards;
+  --animate-flip-fade-in-letter: fade-in-letter 0.2s ease forwards;
+
+  --animate-flip-enter-word: enter-word 0.6s ease-in-out forwards;
+  --animate-flip-leave-word: leave-word 0.6s ease-in-out forwards;
+
+  @keyframes fade-in-word {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes fade-in-letter {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes enter-word {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes leave-word {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2);
+      filter: blur(8px);
+    }
+  }
+}

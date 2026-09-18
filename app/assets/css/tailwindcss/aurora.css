@@ -1,0 +1,74 @@
+@theme {
+  --animate-aurora: animate-aurora 60s linear infinite;
+
+  --white-gradient: repeating-linear-gradient(
+    100deg,
+    var(--color-white) 0%,
+    var(--color-white) 7%,
+    transparent 10%,
+    transparent 12%,
+    var(--color-white) 16%
+  );
+
+  --dark-gradient: repeating-linear-gradient(
+    100deg,
+    var(--color-black) 0%,
+    var(--color-black) 7%,
+    transparent 10%,
+    transparent 12%,
+    var(--color-black) 16%
+  );
+
+  --aurora: repeating-linear-gradient(
+    100deg,
+    var(--color-blue-500) 10%,
+    var(--color-indigo-300) 15%,
+    var(--color-blue-300) 20%,
+    var(--color-violet-200) 25%,
+    var(--color-blue-400) 30%
+  );
+
+  @keyframes animate-aurora {
+    0% {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    100% {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
+@layer components {
+  .bg-aurora {
+    @apply pointer-events-none absolute -inset-[10px] opacity-50 blur-[10px] invert filter will-change-transform;
+
+    background-image: var(--white-gradient), var(--aurora);
+    background-size: 300%, 200%;
+    background-position:
+      50% 50%,
+      50% 50%;
+    mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+
+    @variant dark {
+      @apply invert-0;
+      background-image: var(--dark-gradient), var(--aurora);
+    }
+  }
+
+  .bg-aurora::after {
+    @apply absolute inset-0 mix-blend-difference;
+    background-image: var(--white-gradient), var(--aurora);
+    background-size: 200%, 100%;
+    background-attachment: fixed;
+    content: '';
+
+    @variant dark {
+      @apply invert-0;
+      background-image: var(--dark-gradient), var(--aurora);
+    }
+  }
+}

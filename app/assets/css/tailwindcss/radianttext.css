@@ -1,0 +1,22 @@
+@theme {
+  --animate-radiant-text: radiant-text 5s infinite;
+
+  @keyframes radiant-text {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - 100px) 0;
+    }
+    30%,
+    60% {
+      background-position: calc(100% + 100px) 0;
+    }
+  }
+}
+
+@layer components {
+  .radiant-text {
+    @apply animate-radiant-text [background-size:100px_100%] bg-clip-text [background-position:0_0] bg-no-repeat [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite];
+    @apply bg-gradient-to-r from-transparent via-black via-50% to-transparent dark:via-white;
+  }
+}

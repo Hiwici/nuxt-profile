@@ -1,0 +1,21 @@
+@theme {
+  --animate-svg-text: animate-svg-line 4s forwards;
+
+  @keyframes animate-svg-line {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@layer components {
+  .svg-text {
+    @apply animate-svg-text fill-none stroke-neutral-800/80 stroke-1 font-[helvetica] text-6xl font-bold select-none [stroke-dasharray:500] [stroke-dashoffset:500] dark:stroke-neutral-200/80;
+  }
+}
+
+@supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+  .svg-text {
+    @apply [stroke-dasharray:1500_1500] [stroke-dashoffset:-1000];
+  }
+}

@@ -1,0 +1,56 @@
+@theme {
+  --animate-sun: rotate 15s linear infinite;
+  --animate-moon: tilt 5s linear infinite;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes tilt {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.theme-toggle {
+  @apply relative inline-block h-6 w-12 cursor-pointer;
+}
+
+.theme-toggle .moon {
+  @apply absolute top-0 left-0.5 z-10 flex h-6 w-6 items-center justify-center;
+}
+
+.theme-toggle .sun {
+  @apply absolute top-0 left-5.5 z-10 flex h-6 w-6 items-center justify-center;
+}
+
+.theme-toggle .slider {
+  @apply absolute inset-0 top-0 left-0 rounded-full bg-sky-300 transition-[background-color] duration-300 ease-in-out;
+}
+
+.theme-toggle .slider::before {
+  @apply absolute top-0.5 left-0.5 z-20 h-5 w-5 rounded-full bg-white transition-[translate] duration-300 ease-in-out content-[''];
+}
+
+.theme-toggle > input:checked + .slider {
+  @apply bg-blue-900;
+}
+
+.theme-toggle > input:checked + .slider::before {
+  @apply translate-x-6;
+}

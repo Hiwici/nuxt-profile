@@ -1,0 +1,15 @@
+@layer components {
+  .line-numbers {
+    counter-reset: line;
+  }
+
+  .line-numbers .line {
+    counter-increment: line;
+    @apply ml-9;
+  }
+
+  .line-numbers .line::before {
+    content: counter(line);
+    @apply absolute left-0 inline-block min-w-4 text-right text-gray-500 select-none;
+  }
+}

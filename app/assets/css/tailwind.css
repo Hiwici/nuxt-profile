@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+@import './tailwindcss/aurora.css';
+@import './tailwindcss/flipwords.css';
+@import './tailwindcss/svgtext.css';
+@import './tailwindcss/code.css';
+@import './tailwindcss/toggle.css';
+@import './tailwindcss/radianttext.css';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .accordion {
+    @apply max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out;
+  }
+
+  /* Fonts */
+  .text-headline-1 {
+    @apply text-2xl lg:text-3xl;
+  }
+  .text-headline-2 {
+    @apply text-xl lg:text-2xl;
+  }
+  .text-headline-3 {
+    @apply text-lg lg:text-xl;
+  }
+  .text-headline-4 {
+    @apply text-base lg:text-lg;
+  }
+  .text-caption-1 {
+    @apply text-xs lg:text-sm;
+  }
+  .text-caption-2 {
+    @apply text-[10px] lg:text-xs;
+  }
+
+  .theme-bg {
+    @apply bg-gray-50 dark:bg-zinc-900;
+  }
+  .theme-border {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+}
